@@ -1,0 +1,18 @@
+<!-- Navigation -->
+ <a class="navbar-brand" href="{{ url("/") }}">
+    {{ config_get("streams::distribution.name") }}
+   <!--  {{ image("theme::img/icon.svg").height("50")|raw }} -->
+</a>
+
+{% if auth_check() %}
+    <a href="{{ url_route('anomaly.module.users::logout') }}">Logout</a>
+{% else %}
+    <a href="{{ url_route('anomaly.module.users::login') }}">Login</a>
+{% endif %}
+
+{{ structure()
+.linkAttributesDropdown({'data-toggle': 'dropdown'})
+.listClass('nav navbar-nav navbar-right')
+.childListClass('dropdown-menu')
+.cache({'namespace': 'user'})
+.render()|raw }}

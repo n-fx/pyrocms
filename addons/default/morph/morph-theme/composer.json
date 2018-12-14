@@ -1,0 +1,9 @@
+{
+    "name": "morph/morph-theme",
+    "type": "streams-addon",
+    "autoload": {
+        "psr-4": {
+            "Morph\\MorphTheme\\": "src/"
+        }
+    }
+}

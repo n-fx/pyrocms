@@ -1,0 +1,16 @@
+<!-- Footer -->
+<footer class="text-center">
+
+<!-- 
+    {#{{ menu('footer').listClass('list list-unstyled').cache({'namespace': 'user'}).render()|raw }}#}
+
+    {% for link in links('footer').cache({'namespace': 'user'}).user().get() %}
+        <p>
+            <a href="{{ link.url }}">{{ link.title }}</a>
+        </p>
+    {% endfor %}
+ -->
+
+ Copyright &copy; {{ config('app.name') }} {{ 'now'|date("Y") }}
+                
+</footer>
