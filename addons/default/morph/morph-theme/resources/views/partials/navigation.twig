@@ -4,11 +4,11 @@
    <!--  {{ image("theme::img/icon.svg").height("50")|raw }} -->
 </a>
 
-{% if auth_check() %}
+<!-- {% if auth_check() %}
     <a href="{{ url_route('anomaly.module.users::logout') }}">Logout</a>
 {% else %}
     <a href="{{ url_route('anomaly.module.users::login') }}">Login</a>
-{% endif %}
+{% endif %} -->
 
 {{ structure()
 .linkAttributesDropdown({'data-toggle': 'dropdown'})
@@ -16,3 +16,14 @@
 .childListClass('dropdown-menu')
 .cache({'namespace': 'user'})
 .render()|raw }}
+
+
+<div class="container">
+   {#{{ menu('main').listClass('list list-unstyled').cache({'namespace': 'user'}).render()|raw }}#}
+
+    {% for link in links('main').cache({'namespace': 'user'}).user().get() %}
+        <p>
+            <a href="{{ link.url }}">{{ link.title }}</a>
+        </p>
+    {% endfor %}
+</div>

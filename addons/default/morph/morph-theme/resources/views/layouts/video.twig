@@ -12,13 +12,17 @@
 {% include "theme::partials/navigation" %}
 
 <div id="content">
-    <div class="container">
-       <!--  {% include "theme::partials/breadcrumbs" %} -->
+    <div class="container"> 
+       <!--  {% include "theme::partials/breadcrumbs" %} -->   
         {% include "theme::partials/messages" %} 
         {% block content %}{% endblock %} 
+ 
         {% if (request_path() == '/') %}
-            <hr> {% include "theme::partials/posts" %}
+            <hr> {% include "theme::partials/videos" %}
         {% endif %}
+
+        <hr>
+        <a href="{{ post.url_field|raw }}" target="_blank">{{ post.url_field|raw }}</a>
     </div>
 </div>
 
